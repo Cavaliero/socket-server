@@ -9,11 +9,12 @@
   "author": "Fran",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^12.12.17",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "socket.io": "^2.2.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.7.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",

@@ -27,6 +27,9 @@ export default class Server {
         this.listenSockets();
     }
 
+    /**
+     * Singleton instance.
+     */ 
     public static get instance() {
         return this._instance || (this._instance = new this());
     }
@@ -37,6 +40,13 @@ export default class Server {
         console.log('Escuchando conexiones...');
         this.io.on('connection', cliente => {
             console.log('Cliente conectado');
+
+            // Conectar cliente
+            sock.conectarCliente(cliente);
+
+            // Configurar usuario
+            sock.configUser(cliente, this.io);
+
             // Mensajes
             sock.mensaje(cliente, this.io);
 
@@ -45,7 +55,11 @@ export default class Server {
         });
     }
 
-    start( callback: Function) {
+    /**
+     * Start the server listening.
+     * @param callback Callback to call
+     */
+    start( callback: () => void) {
         //this.app.listen(this.port, callback);
         this.httpServer.listen(this.port, callback);
     }
