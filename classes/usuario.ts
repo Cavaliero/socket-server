@@ -2,6 +2,6 @@ export class Usuario {
     constructor (
         public id: string,
         public nombre?: string,
-        public sala?: string
+        public sala: string = 'sin-sala'
     ) {}
 }
